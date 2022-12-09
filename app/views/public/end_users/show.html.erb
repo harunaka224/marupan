@@ -1,0 +1,13 @@
+<h1>マイページ</h1>
+<table class="table">
+  <tbody>
+    <tr></tr>
+      <th>name</th>
+      <th><%= @end_user.name %></th>
+    </tr>
+    <tr>
+     <!--image_tag @end_user.profile_image.get_profile_image, size:'100x100'-->
+      <%= link_to " 編集する ",  edit_end_user_path(current_end_user), class: "btn btn-success btn-sm" %>
+    </tr>
+  </tbody>
+</table>
