@@ -20,7 +20,7 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
   protected
-
+  
   def end_user_state
    @end_user = EndUser.find_by(email: params[:end_user][:email])
     if @end_user
