@@ -4,9 +4,10 @@ class EndUser < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-  #has_one_attached :profile_image
+  has_one_attached :profile_image
   
-  #def get_profile_image
-   # (profile_image.attached?) ? profile_image : 'no_image.jpg'
-  #end
+  
+  def get_profile_image
+    (profile_image.attached?) ? profile_image: 'no_image.jpg'
+  end
 end
