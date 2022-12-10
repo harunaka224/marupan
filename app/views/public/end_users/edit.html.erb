@@ -12,3 +12,5 @@
     <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
     <%= f.submit "変更を保存" %>
   <% end %>
+  
+  <%= link_to "退会する", end_users_quit_path, class: "btn btn-danger" %>
