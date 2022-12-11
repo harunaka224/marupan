@@ -1,0 +1,19 @@
+<div class="container">
+
+  <h3 class="text-center">新規投稿</h3>
+
+  <div class="row justify-content-center">
+  <%= form_with model: @post do |f| %>
+    <label for="inputImage" class="pt-3">投稿画像</label>
+    <%= f.file_field :image, accept: "image/*" %><br>
+    <label for="inputName">タイトル</label>
+    <%= f.text_field :title, autofocus: true, placeholder:"タイトル" %><br>
+    <label for="inputName">説明</label>
+    <%= f.text_field :body, autofocus: true, placeholder:"説明" %><br>
+    <label for="inputName">店舗名</label>
+    <%= f.text_field :shop_name, autofocus: true, placeholder:"店舗" %><br>
+    <div class="pt-3 offset-4"><%= f.submit "投稿", class: "btn btn-warning rounded-pill" %></div>
+  <% end %>
+  </div>
+
+</div>

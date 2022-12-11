@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     get '/end_users/quit' => 'end_users#quit'
     patch '/end_users/out' => 'end_users#out'
     resources :end_users, only: [:show, :edit, :update, :quit, :out]
-    resources :posts, only: [:index, :show]
+    resources :posts, only: [:new, :create,:index, :show]
     resources :post_comments, only: [:create, :destroy]
     resources :likes, only: [:index, :create, :destroy]
     resources :relationships, only: [:create, :destroy]
