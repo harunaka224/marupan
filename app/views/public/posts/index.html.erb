@@ -1,0 +1,12 @@
+<% @posts.each do |posts| %>
+<div>
+  <%= image_tag posts.end_user.get_profile_image, size:'200x200' %>
+  <p><%= image_tag posts.get_image, size:'200x200' %></p>
+  <p><%= posts.shop_name %></p>
+  <p><%= posts.title %></p>
+  <p><%= posts.body %></p>
+  <p><%= posts.end_user.name %></p>
+</div>
+<% end %>
+
+

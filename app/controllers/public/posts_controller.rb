@@ -6,7 +6,7 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.end_user_id = current_end_user
+    @post.end_user_id = current_end_user.id
     @post.save
     redirect_to posts_path
   end
@@ -16,7 +16,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-
+    @posts = Post.all
   end
 
   private
