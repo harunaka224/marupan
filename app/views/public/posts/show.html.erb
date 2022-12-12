@@ -1,10 +1,25 @@
 <h3>投稿詳細</h3>
 
-<%= image_tag @post.get_image, size:"200x200" %>
-<%= @post.title %>
-<%= @post.body %>
-<%= @post.shop_name %>
-<%= @post.end_user.name %>
-
-<%= link_to "編集", edit_post_path(@post.id) %>
-<%= link_to "削除", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <div class="card-deck">
+        <div class="card" style="width:15rem;">
+          <img class="bd-placeholder-img card-img-top" role="img" aria-label="画像の説明">
+            <%= image_tag @post.get_image %>
+          </img>
+          <div class="card-body">
+            <p class="card-text"><%= @post.title %></p>
+            <p class="card-text"><%= @post.created_at.strftime('%Y/%m/%d') %></p>
+            <p class="card-text"><%= @post.body %></p>
+            <p class="card-text"><%= @post.shop_name %></p>
+            <p class="card-text"><%= @post.end_user.id %></p>
+            <%= link_to "編集", edit_post_path(@post.id) %>
+            <%= link_to "削除", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+            <%= link_to posts_path, class: "btn btn-dark btn-sm" do %>投稿一覧<% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

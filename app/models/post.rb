@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_one_attached :image
 
   def get_image
-    (image.attached?) ? image: 'no_end_user_image.jpg'
+    (image.attached?) ? image: 'no_image.png'
   end
 
 end

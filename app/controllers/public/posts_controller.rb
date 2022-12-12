@@ -8,7 +8,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.end_user_id = current_end_user.id
     @post.save
-    redirect_to post_path(post.id)
+    redirect_to post_path(@post.id)
   end
 
   def show

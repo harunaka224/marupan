@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   registrations: "public/registrations",
   sessions: "public/sessions"
 }
+  #ゲストユーザー機能
   devise_scope :end_user do
     post 'guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
@@ -22,8 +23,6 @@ Rails.application.routes.draw do
     #退会機能
     get '/end_users/quit' => 'end_users#quit'
     patch '/end_users/out' => 'end_users#out'
-    #ゲストユーザー機能
-
     resources :end_users, only: [:show, :edit, :update, :quit, :out]
     resources :posts
     resources :post_comments, only: [:create, :destroy]
