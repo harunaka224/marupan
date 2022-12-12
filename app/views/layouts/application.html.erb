@@ -33,6 +33,7 @@
             <% else %>
               <li class='mx-4'><%= link_to new_end_user_registration_path, class: 'btn btn-outline-dark' do %>新規登録<% end %></li>
               <li class='mx-4'><%= link_to new_end_user_session_path, class: 'btn btn-outline-dark' do %>ログイン<% end %></li>
+              <li class='mx-4'><%= link_to guest_sign_in_path, class: 'btn btn-outline-dark',  method: :post do %>ゲストログイン<% end %></li>
             <% end %>
             </ul>
           </div>

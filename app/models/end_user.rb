@@ -11,4 +11,11 @@ class EndUser < ApplicationRecord
   def get_profile_image
     (profile_image.attached?) ? profile_image: 'no_end_user_image.jpg'
   end
+
+  def self.guest
+    find_or_create_by!(name: 'guest' ,email: 'guest@example.com') do |end_user|
+      end_user.password = SecureRandom.urlsafe_base64
+      end_user.name = "guest"
+    end
+  end
 end

@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     #退会機能
     get '/end_users/quit' => 'end_users#quit'
     patch '/end_users/out' => 'end_users#out'
+    #ゲストユーザー機能
+    post 'guest_sign_in', to: 'sessions#guest_sign_in'
     resources :end_users, only: [:show, :edit, :update, :quit, :out]
     resources :posts, only: [:new, :create,:index, :show]
     resources :post_comments, only: [:create, :destroy]
