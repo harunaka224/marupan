@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     #ゲストユーザー機能
     post 'guest_sign_in', to: 'sessions#guest_sign_in'
     resources :end_users, only: [:show, :edit, :update, :quit, :out]
-    resources :posts, only: [:new, :create,:index, :show, :edit, :update]
+    resources :posts
     resources :post_comments, only: [:create, :destroy]
     resources :likes, only: [:index, :create, :destroy]
     resources :relationships, only: [:create, :destroy]
