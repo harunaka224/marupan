@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   registrations: "public/registrations",
   sessions: "public/sessions"
 }
+  devise_scope :end_user do
+    post 'guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end
 
   scope module: :public do
     root :to => "homes#top"
@@ -20,7 +23,7 @@ Rails.application.routes.draw do
     get '/end_users/quit' => 'end_users#quit'
     patch '/end_users/out' => 'end_users#out'
     #ゲストユーザー機能
-    post 'guest_sign_in', to: 'sessions#guest_sign_in'
+
     resources :end_users, only: [:show, :edit, :update, :quit, :out]
     resources :posts
     resources :post_comments, only: [:create, :destroy]

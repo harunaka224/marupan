@@ -36,6 +36,7 @@ class Public::EndUsersController < ApplicationController
     params.require(:end_user).permit(:name, :profile_image)
   end
 
+
   def ensure_guest_end_user
     @end_user = EndUser.find(params[:id])
     if @end_user.name == "guest"
