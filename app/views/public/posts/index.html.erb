@@ -1,12 +1,12 @@
 <div class="container">
 
-  <div class="row">
-      <div class="card-deck">
+  <div class="row offset-md-1">
+      <div class="card-deck mt-3">
       <% @posts.each do |post| %>
         <%= link_to post_path(post.id) do %>
           <div class="card" style="width: 280px;">
-            <img class="bd-placeholder-img card-img-top" role="img" aria-label="画像の説明">
-              <%= image_tag post.get_image %>
+            <img class="card-img-top" role="img" aria-label="画像の説明">
+              <%= image_tag post.get_image, size: "280x280" %>
             </img>
             <div class="card-body">
               <p class="card-text"><%= post.title %></p>

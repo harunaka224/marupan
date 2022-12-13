@@ -4,23 +4,38 @@
   <div class="row">
     <div class="col-md-6 text-center">
       <%= image_tag @end_user.get_profile_image, size:'200x200' %><br>
-      
+
       <div class='row'>
        <%= link_to "プロフィールを編集", edit_end_user_path(current_end_user), class: "btn btn-dark btn-sm" %>
       </div>
-     
+
     </div>
-    
+
     <div class="col-md-6">
       <h3><%= @end_user.name %></h3>
       <p><%= @end_user.email %></p>
     </div>
   </div>
-  
+
   <div class="row text-center">
     <div class="col-md-6">投稿一覧</div>
-    
+      <div class="card-deck">
+      <% @post.each do |post| %>
+        <%= link_to post_path(post.id) do %>
+          <div class="card" style="width: 280px;">
+            <img class="bd-placeholder-img card-img-top" role="img" aria-label="画像の説明">
+              <%= image_tag post.get_image %>
+            </img>
+            <div class="card-body">
+              <p class="card-text"><%= post.title %></p>
+              <p class="card-text"><%= post.created_at.strftime('%Y/%m/%d') %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
     <div class="col-md-6">いいね一覧</div>
   </div>
-  
+
 </div>

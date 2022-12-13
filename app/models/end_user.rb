@@ -7,6 +7,9 @@ class EndUser < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
 
+  validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
+  validates :email, presence: true
+
   has_one_attached :profile_image
 
   def get_profile_image
