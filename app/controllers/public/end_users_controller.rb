@@ -30,6 +30,11 @@ class Public::EndUsersController < ApplicationController
     redirect_to root_path, notice: "退会しました"
   end
 
+  def likes
+   @end_user = EndUser.find(params[:id])
+   likes = Like.where(end_user_id: @end_user.id).pluck(:post_id)
+   @like_posts = Post.find(likes)
+  end
 
   private
 

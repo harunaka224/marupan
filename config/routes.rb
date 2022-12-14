@@ -18,12 +18,18 @@ Rails.application.routes.draw do
     post 'guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
 
+
   scope module: :public do
     root :to => "homes#top"
     #退会機能
     get '/end_users/quit' => 'end_users#quit'
     patch '/end_users/out' => 'end_users#out'
-    resources :end_users, only: [:show, :edit, :update, :quit, :out]
+    resources :end_users, only: [:show, :edit, :update, :quit, :out] do
+      #いいね一覧表示
+      member do
+        get :likes
+      end
+    end
     resources :posts do
      resource :likes, only: [:create, :destroy]
     end
@@ -31,7 +37,6 @@ Rails.application.routes.draw do
     resources :relationships, only: [:create, :destroy]
     get "/notifications" => "notifications#index"
     get "/search" => "searches#search"
-
   end
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
