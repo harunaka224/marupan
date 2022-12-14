@@ -32,8 +32,8 @@ Rails.application.routes.draw do
     end
     resources :posts do
      resource :likes, only: [:create, :destroy]
+     resources :post_comments, only: [:create, :destroy]
     end
-    resources :post_comments, only: [:create, :destroy]
     resources :relationships, only: [:create, :destroy]
     get "/notifications" => "notifications#index"
     get "/search" => "searches#search"
