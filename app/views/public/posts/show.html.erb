@@ -9,15 +9,19 @@
             <%= image_tag @post.get_image, size: "445x300" %>
           </img>
           <div class="card-body">
-            <p class="card-text"><%= @post.title %></p>
+            <p class="card-text">
+              <%= @post.title %>
+              <%= link_to edit_post_path(@post.id) do %>
+              <i class="fas fa-edit" style="color:#000;"></i>
+              <% end %>
+            </p>
             <p class="card-text"><%= @post.body %></p>
             <p class="card-text"><%= @post.shop_name %></p>
             <p class="card-text"><%= @post.created_at.strftime('%Y/%m/%d') %></p>
             <p class="card-text"><%= @post.end_user.id %></p>
             <p class="likes-btn"><%= render 'public/likes/btn', post: @post %></p>
-            <%= link_to "編集", edit_post_path(@post.id) %>
-            <%= link_to post_path(@post.id), method: :delete do %>
-              <i class="fa-solid fa-trash-alt"></i>
+            <%= link_to post_path(@post.id), method: :delete, "data-confirm" => "投稿を削除しますか？" do %>
+              <i class="fas fa-trash-alt" style="color:#000;"></i>
             <% end %>
           </div>
         </div>
