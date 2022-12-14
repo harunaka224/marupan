@@ -1,0 +1,5 @@
+console.log ('destroy.js.erb')
+
+$('.comment-form').val("");
+$('.comment-counter').html("<%= j(render "public/post_comments/counter", post: @post) %>");
+$('.comment-index').html("<%= j(render "public/post_comments/index", post: @post) %>");
