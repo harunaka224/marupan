@@ -14,28 +14,16 @@
     <div class="col-md-6">
       <h3><%= @end_user.name %></h3>
       <p><%= @end_user.email %></p>
+      <p><%=link_to"お気に入り記事",likes_end_user_path(@end_user) %></P>
     </div>
   </div>
 
   <div class="row text-center">
-    <div class="col-md-6">投稿一覧</div>
-      <div class="card-deck">
-      <% @post.each do |post| %>
-        <%= link_to post_path(post.id) do %>
-          <div class="card" style="width: 280px;">
-            <img class="bd-placeholder-img card-img-top" role="img" aria-label="画像の説明">
-              <%= image_tag post.get_image %>
-            </img>
-            <div class="card-body">
-              <p class="card-text"><%= post.title %></p>
-              <p class="card-text"><%= post.created_at.strftime('%Y/%m/%d') %></p>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+    <div class="col-md-6">
+      <h5>投稿一覧</h5>
+      <div class="card-deck"><%= render "public/posts/index", posts: @post %></div>
+      <div class="pt-3"><%= paginate @post %></div>
     </div>
-
-    <p><%=link_to"お気に入り記事",likes_end_user_path(@end_user) %></P>
   </div>
 
 </div>

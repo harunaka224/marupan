@@ -4,7 +4,7 @@ class Public::EndUsersController < ApplicationController
 
   def show
     @end_user = current_end_user
-    @post = @end_user.posts
+    @post = @end_user.posts.page(params[:page]).per(9)
   end
 
   def edit
