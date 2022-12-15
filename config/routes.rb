@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 }
   #ゲストユーザー機能
   devise_scope :end_user do
-    post 'guest_sign_in', to: 'public/sessions#guest_sign_in'
+    post 'guest_sign_in' => 'public/sessions#guest_sign_in'
   end
 
 
@@ -25,6 +25,9 @@ Rails.application.routes.draw do
     get '/end_users/quit' => 'end_users#quit'
     patch '/end_users/out' => 'end_users#out'
     resources :end_users, only: [:show, :edit, :update, :quit, :out] do
+      resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
       #いいね一覧表示
       member do
         get :likes
@@ -34,7 +37,6 @@ Rails.application.routes.draw do
      resource :likes, only: [:create, :destroy]
      resources :post_comments, only: [:create, :destroy]
     end
-    resources :relationships, only: [:create, :destroy]
     get "/notifications" => "notifications#index"
     get "/search" => "searches#search"
   end

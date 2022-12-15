@@ -3,7 +3,7 @@ class Public::EndUsersController < ApplicationController
   before_action :ensure_guest_end_user, only: [:edit]
 
   def show
-    @end_user = current_end_user
+    @end_user = EndUser.find(params[:id])
     @post = @end_user.posts.page(params[:page]).per(9)
   end
 
