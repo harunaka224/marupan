@@ -1,2 +1,3 @@
-<h3>フォローしている人</h3>
-<%= render "follow_list" end_users: @end_users %>
+<h3>フォロー<%= @end_users.count %></h3>
+<%= render "follow_list", end_users: @end_users %>
+<%= paginate @end_users %>

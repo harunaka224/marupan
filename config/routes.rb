@@ -26,8 +26,8 @@ Rails.application.routes.draw do
     patch '/end_users/out' => 'end_users#out'
     resources :end_users, only: [:show, :edit, :update, :quit, :out] do
       resource :relationships, only: [:create, :destroy]
-      get 'followings' => 'relationships#followings', as: 'followings'
-      get 'followers' => 'relationships#followers', as: 'followers'
+      get 'followings' => 'relationships#followings'
+      get 'followers' => 'relationships#followers'
       #いいね一覧表示
       member do
         get :likes

@@ -1,5 +1,5 @@
 class Public::RelationshipsController < ApplicationController
-  
+
   def create
     current_end_user.follow(params[:end_user_id])
     redirect_to request.referer
@@ -7,17 +7,17 @@ class Public::RelationshipsController < ApplicationController
 
   def destroy
     current_end_user.unfollow(params[:end_user_id])
-    redirect_to request.referer  
+    redirect_to request.referer
   end
   # フォロー一覧
   def followings
     end_user = EndUser.find(params[:end_user_id])
-    @end_users = end_user.followings
+    @end_users = end_user.followings.page(params[:page]).per(10)
   end
   # フォロワー一覧
   def followers
     end_user = EndUser.find(params[:end_user_id])
-    @end_users = end_user.followers
+    @end_users = end_user.followers.page(params[:page]).per(9)
   end
-  
+
 end

@@ -1,18 +1,13 @@
+<div class="col-8 mx-auto">
 <% if end_users.exists? %>
-  <% end_users.each do |user| %>
-    <table>
-      <thead>
-        <tr>
-          <th>name</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
+  <% end_users.each do |end_user| %>
+    <table class="table table-hover">
       <tbody>
         <tr>
-          <td><%= user.name %></td>
-          <td>フォロー数: <%= user.followings.count %></td>
-          <td>フォロワー数: <%= user.followers.count %></td>
+          <td><%= end_user.name %></td>
+          <td><%= image_tag end_user.get_profile_image, size:'100x100' %></td>
+          <td>フォロー<%= end_user.followings.count %></td>
+          <td>フォロワー<%= end_user.followers.count %></td>
         </tr>
       </tbody>
     </table>
@@ -20,3 +15,4 @@
 <% else %>
   <p>ユーザーはいません</p>
 <% end %>
+</div>
