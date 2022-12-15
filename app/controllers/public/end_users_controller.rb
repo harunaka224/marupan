@@ -27,7 +27,7 @@ class Public::EndUsersController < ApplicationController
     @end_user = current_end_user
     @end_user.update(is_deleted: true)
     reset_session
-    redirect_to root_path, notice: "退会しました"
+    redirect_to root_path, alert: "退会しました"
   end
 
   def likes
@@ -46,7 +46,7 @@ class Public::EndUsersController < ApplicationController
   def ensure_guest_end_user
     @end_user = EndUser.find(params[:id])
     if @end_user.name == "guest"
-      redirect_to end_user_path(current_end_user), notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+      redirect_to end_user_path(current_end_user), notice: 'ゲストユーザーはプロフィールを編集できません'
     end
   end
 end
