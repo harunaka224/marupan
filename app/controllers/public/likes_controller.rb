@@ -3,7 +3,8 @@ class Public::LikesController < ApplicationController
   def create
     @post_like = Like.new(end_user_id: current_end_user.id, post_id: params[:post_id])
     @post_like.save
-    @post = Post.find(params[:post_id]), notice: '投稿に「いいね！」しました'
+    flash[:notice] = '投稿に「いいね！」しました。'
+    @post = Post.find(params[:post_id])
   end
 
   def destroy
