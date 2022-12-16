@@ -1,8 +1,17 @@
 <div class="new-img">
   <div class="container">
     <h3 class="text-center"><strong>新規投稿</strong></h3>
-    <div class="row offset-4">
 
+    <% if @post.errors.any? %>
+      <%= @post.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <div class="row offset-4">
     <%= form_with model: @post do |f| %>
       <label  class="col-3">投稿画像</label>
       <%= f.file_field :image, accept: "image/*" %><br>
@@ -14,7 +23,7 @@
       <%= f.text_field :shop_name, autofocus: true, placeholder:"店名" %><br>
       <div class="pt-3 offset-4"><%= f.submit "投稿", class: "btn btn-warning rounded-pill" %></div>
     <% end %>
-
     </div>
+
   </div>
 </div>
