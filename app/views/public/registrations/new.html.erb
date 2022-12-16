@@ -1,40 +1,37 @@
-<div class="container">
-  <h3 class="text-center">新規登録</h3>
+<div class="new-img">
+    <h3 class="text-center mb-4"><strong>新規登録</strong></h3>
 
-  <div class="row justify-content-center">
+    <div class="d-flex justify-content-center">
     <%= form_with model: @end_user, url: end_user_registration_path do |f| %>
-
-  <div class="form-group row">
-    <%= f.label :"ユーザー名" %>
-    <%= f.text_field :name, autofocus: true, autocomplete: "name",:placeholder => "ユーザー名" %>
-  </div>
-
-  <div class="form-group row">
-    <%= f.label :"メールアドレス" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "メールアドレス" %>
-  </div>
-
-  <div class="form-group row">
-    <%= f.label :"パスワード" %>
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions col-8 text-center">
-    <%= f.submit "登録", class: 'btn btn-primary rounded-pill' %>
-  </div>
-
-  <% end %>
-  </div>
-
-  <div class="row ml-5 mt-5">
-    <h5>会員の方</h5>
-  </div>
-
-  <div class="row">
-    <div class="col-4 offset-3">
-     <%= link_to "こちら",  new_end_user_session_path %> からログインを行ってください。
+      <div class="form-group">
+        <%= f.label :"ユーザー名" %>
+        <div>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name",:placeholder => "ユーザー名" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :"メールアドレス" %>
+        <div>
+        <%= f.email_field :email, autocomplete: "email",:placeholder => "メールアドレス" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :"パスワード" %>
+        <div>
+        <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+      </div>
+      <div class="actions text-center">
+        <%= f.submit "登録", class: 'btn btn-primary rounded-pill' %>
+      </div>
+    <% end %>
     </div>
-  </div>
+
+    <div class="d-flex justify-content-center mt-4">
+      会員の方
+      <%= link_to "こちら",  new_end_user_session_path %> からログインを行ってください。
+    </div>
 
 </div>
+
 

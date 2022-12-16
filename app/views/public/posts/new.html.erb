@@ -1,19 +1,20 @@
-<div class="container">
+<div class="new-img">
+  <div class="container">
+    <h3 class="text-center"><strong>新規投稿</strong></h3>
+    <div class="row offset-4">
 
-  <h3 class="text-center">新規投稿</h3>
+    <%= form_with model: @post do |f| %>
+      <label  class="col-3">投稿画像</label>
+      <%= f.file_field :image, accept: "image/*" %><br>
+      <label class="col-3 col-form-label">タイトル</label>
+      <%= f.text_field :title, autofocus: true, placeholder:"タイトル" %><br>
+      <label class="col-3 col-form-label">説明</label>
+      <%= f.text_field :body, autofocus: true, placeholder:"説明" %><br>
+      <label class="col-3 col-form-label">店名</label>
+      <%= f.text_field :shop_name, autofocus: true, placeholder:"店名" %><br>
+      <div class="pt-3 offset-4"><%= f.submit "投稿", class: "btn btn-warning rounded-pill" %></div>
+    <% end %>
 
-  <div class="row justify-content-center">
-  <%= form_with model: @post do |f| %>
-    <label class="pt-3">投稿画像</label>
-    <%= f.file_field :image, accept: "image/*" %><br>
-    <label>タイトル</label>
-    <%= f.text_field :title, autofocus: true, placeholder:"タイトル" %><br>
-    <label>説明</label>
-    <%= f.text_field :body, autofocus: true, placeholder:"説明" %><br>
-    <label>店名</label>
-    <%= f.text_field :shop_name, autofocus: true, placeholder:"店名" %><br>
-    <div class="pt-3 offset-4"><%= f.submit "投稿", class: "btn btn-warning rounded-pill" %></div>
-  <% end %>
+    </div>
   </div>
-
 </div>
