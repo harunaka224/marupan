@@ -1,6 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+.top-img {
+  background-image: url("/assets/top.jpg");
+  background-size: cover;
+  background-position: center;
+  width:100%;
+  height: 600px;
+}
+
 /*ハンバーガーメニューの背景色カラー変更*/
 .navbar-toggler{
   background-color: #ffbd59;

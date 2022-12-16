@@ -22,7 +22,7 @@ class Public::SessionsController < Devise::SessionsController
   def guest_sign_in
     end_user = EndUser.guest
     sign_in end_user
-    redirect_to end_user_path(current_end_user), notice: 'ゲストログインしました'
+    redirect_to root_path, notice: 'ゲストログインしました'
   end
 
   protected
