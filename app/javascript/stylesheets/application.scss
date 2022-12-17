@@ -1,30 +1,3 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-.top-img {
-  background-image: url("/assets/top.jpg");
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 600px;
-}
-
-/*ハンバーガーメニューの背景色カラー変更*/
-.navbar-toggler{
-  background-color: #ffbd59;
-}
-
-/*ハンバーガーメニューの３本線の変更*/
-.navbar-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-/*新規投稿、ログイン、新規登録*/
-.new-img {
-  background-image: url("/assets/new.jpg");
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 600px;
-}
-
