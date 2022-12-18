@@ -39,6 +39,9 @@
             <% end %>
             </ul>
           </div>
+          <% if end_user_signed_in? %>
+          <%= render "public/searches/form" %>
+          <% end %>
         </div>
       </nav>
     </header>

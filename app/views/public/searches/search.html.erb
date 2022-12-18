@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row offset-md-1">
+      <div class="card-deck mt-3">
+        <% if @model == 'end_user' %>
+        <h3>ユーザー検索結果 "<%= @content %>"</h3>
+          <%= render 'public/end_users/index', end_users: @records %>
+        <% elsif @model == 'post' %>
+        <h3>投稿検索結果 "<%= @content %>"</h3>
+          <%= render 'public/posts/index', posts: @records %>
+        <% end %>
+      </div>
+  </div>
+</div>
+<div class="offset-5 pt-3"><%= paginate @records %></div>
+

@@ -44,4 +44,18 @@ class EndUser < ApplicationRecord
   def following?(end_user)
     followings.include?(end_user)
   end
+  
+  #ユーザー検索分岐
+  def self.search_for(content, method)
+    if method == "perfect"
+      EndUser.where(name: content)
+    elsif method == "forward"
+      EndUser.where("name LIKE ?", content+"%")
+    elsif method == "backward"
+      EndUser.where("name LIKE ?", "%"+content)
+    else
+      EndUser.where("name LIKE ?", "%"+content+"%")
+    end
+  end
+  
 end

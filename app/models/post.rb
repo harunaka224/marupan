@@ -19,4 +19,17 @@ class Post < ApplicationRecord
     likes.where(end_user_id: end_user.id).exists?
   end
 
+  #投稿タイトル検索分岐
+  def self.search_for(content, method)
+    if method == "perfect"
+      Post.where(title: content)
+    elsif method == "forward"
+      Post.where("title LIKE ?", content+"%")
+    elsif method == 'backward'
+      Post.where("title LIKE ?", "%"+content)
+    else
+      Post.where("title LIKE ?", "%"+content+"%")
+    end
+  end
+
 end
