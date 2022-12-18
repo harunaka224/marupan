@@ -1,0 +1,36 @@
+<div class = "container" >
+  <h3 class="text-center mt-5"><%= @end_user.name %>さんの会員詳細</h3>
+  <div class='row'>
+    <div class='col-10 offset-2 mt-3'>
+      <table class="table table-borderless ">
+        <tr>
+          <td>会員ID</td>
+          <td><%= @end_user.id %></td>
+        </tr>
+        <tr>
+          <td>名前</td>
+          <td><%= @end_user.name %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @end_user.email %></td>
+        </tr>
+        <tr>
+          <td>ステータス</td>
+          <% if @end_user.is_deleted? %>
+            <td class="text-dark">退会</td>
+          <% else %>
+            <td class="text-success">有効</td>
+          <% end %>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td><%= link_to "編集する", edit_admin_end_user_path, class: "btn btn-success" %>
+              <%= link_to "会員一覧を見る", admin_root_path, class: "btn btn-primary offset-2" %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
