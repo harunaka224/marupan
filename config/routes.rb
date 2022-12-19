@@ -38,6 +38,7 @@ Rails.application.routes.draw do
      resources :post_comments, only: [:create, :destroy]
     end
     get "/notifications" => "notifications#index"
+    delete '/notifications/destroy_all' => 'notifications#destroy_all'
     get "/search" => "searches#search"
   end
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

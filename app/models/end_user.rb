@@ -16,6 +16,9 @@ class EndUser < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visiter_id', dependent: :destroy #通知を送った
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy #通知を受け取った
+
   validates :name, length: { in: 2..20}, uniqueness: true
   validates :email, presence: true, uniqueness: true
 
@@ -44,7 +47,7 @@ class EndUser < ApplicationRecord
   def following?(end_user)
     followings.include?(end_user)
   end
-  
+
   #ユーザー検索分岐
   def self.search_for(content, method)
     if method == "perfect"
@@ -57,5 +60,17 @@ class EndUser < ApplicationRecord
       EndUser.where("name LIKE ?", "%"+content+"%")
     end
   end
-  
+
+  #通知メゾット(フォロー)
+  def create_notification_follow!(current_end_user)
+    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ",current_end_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_end_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
+  end
+
 end

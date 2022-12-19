@@ -5,6 +5,7 @@ class Public::LikesController < ApplicationController
     @post_like.save
     flash[:notice] = '投稿に「いいね！」しました。'
     @post = Post.find(params[:post_id])
+    @post.create_notification_by(current_end_user, @post)
   end
 
   def destroy
