@@ -1,10 +1,11 @@
 <div class="container">
   <div class="row offset-md-1">
-      <div class="card-deck mt-3">
-        <%= render "index", posts: @posts %>
-      </div>
+    <div class="card-deck mt-3">
+      <%= render "index", posts: @posts %>
+    </div>
   </div>
 </div>
+
 <div class="offset-5 pt-3"><%= paginate @posts %></div>
 
 
