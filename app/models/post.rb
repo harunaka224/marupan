@@ -34,7 +34,7 @@ class Post < ApplicationRecord
   end
 
  #通知メゾット(いいね、コメント)
-  def create_notification_by(current_end_user, like_post)
+  def create_notification_by(current_end_user, like_post) #like_post = @post
     notification = current_end_user.active_notifications.new(
       post_id: like_post.id,
       visited_id: like_post.end_user_id,
@@ -53,7 +53,7 @@ class Post < ApplicationRecord
   	save_notification_comment!(current_end_user, post_comment_id, end_user_id, post_id) if temp_ids.blank?
   end
 
-  def save_notification_comment!(current_end_user, post_comment_id, visited_id, post_id)
+  def save_notification_comment!(current_end_user, post_comment_id, visited_id, post_id) #visited_id = 通知を受け取る
     # コメントは複数回することが考えられるため、１つの投稿に複数回通知する
     notification = current_end_user.active_notifications.new(
       post_id: post_id,

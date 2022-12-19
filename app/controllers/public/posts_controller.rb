@@ -11,7 +11,7 @@ class Public::PostsController < ApplicationController
       redirect_to post_path(@post.id)
     else
       render :new
-    end  
+    end
   end
 
   def show
@@ -20,7 +20,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.page(params[:page]).per(9)
+    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(9)
   end
 
   def edit
