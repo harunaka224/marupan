@@ -14,7 +14,7 @@ class Public::EndUsersController < ApplicationController
   def update
     @end_user = current_end_user
     if @end_user.update(end_user_params)
-       redirect_to end_user_path(current_end_user)
+      redirect_to end_user_path(current_end_user)
     else
       render edit
     end
@@ -31,9 +31,9 @@ class Public::EndUsersController < ApplicationController
   end
 
   def likes
-   @end_user = EndUser.find(params[:id])
-   likes = Like.where(end_user_id: @end_user.id).pluck(:post_id)
-   @like_posts = Post.find(likes)
+    @end_user = EndUser.find(params[:id])
+    likes = Like.where(end_user_id: @end_user.id).pluck(:post_id)
+    @like_posts = Post.find(likes)
   end
 
   private

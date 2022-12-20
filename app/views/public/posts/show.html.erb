@@ -18,7 +18,7 @@
             <p class="card-text"><%= @post.body %></p>
             <p class="card-text"><%= @post.shop_name %></p>
             <p class="card-text"><%= @post.created_at.strftime('%Y/%m/%d') %></p>
-            <p class="card-text"><%= @post.end_user.name %></p>
+            <p class="card-text"><%= link_to @post.end_user.name, end_user_path(@post) %></p>
             <p class="likes-btn"><%= render 'public/likes/btn', post: @post %></p>
             <%= link_to post_path(@post.id), method: :delete, "data-confirm" => "投稿を削除しますか？" do %>
               <i class="fas fa-trash-alt" style="color:#000;"></i>
