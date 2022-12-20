@@ -3,6 +3,7 @@
   <% if @post.end_user == current_end_user %>
     <%= link_to edit_post_path(@post.id) do %>
       <i class="fas fa-edit" style="color:#000;"></i>
+    <% end %>
   <% end %>
 </h3>
 
@@ -17,7 +18,6 @@
           <div class="card-body">
             <p class="card-text">
               <%= @post.title %>
-              <% end %>
             </p>
             <p class="card-text"><%= @post.body %></p>
             <p class="card-text"><i class="fas fa-bread-slice"></i><%= @post.shop_name %></p>
@@ -35,13 +35,14 @@
           </div>
         </div>
       </div>
+      <div class="mt-2"><%= render "public/post_comments/form", post: @post, post_comment: @post_comment %></div>
     </div>
 
     <div class="col-5">
-      <div><%= render "public/post_comments/form", post: @post, post_comment: @post_comment %></div>
       <div class="comment-counter"><%= render "public/post_comments/counter", post: @post %></div>
-      <div class="comment-index"><%= render "public/post_comments/index", post: @post %></div>
+      <div class="comment-index"><%= render "public/post_comments/index", post_comments: @post_comments %></div>
     </div>
+
   </div>
 </div>
 
