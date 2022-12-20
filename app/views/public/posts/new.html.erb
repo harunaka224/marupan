@@ -2,15 +2,16 @@
   <div class="container">
     <h3 class="text-center"><strong>新規投稿</strong></h3>
 
-    <% if @post.errors.any? %>
-      <%= @post.errors.count %>件のエラーが発生しました
+    <div class="row offset-4">
+      <% if @post.errors.any? %>
+      必須入力です
       <ul>
         <% @post.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
-    <% end %>
-
+      <% end %>
+    </div>
     <div class="row offset-4">
     <%= form_with model: @post do |f| %>
       <label  class="col-3">投稿画像</label>
