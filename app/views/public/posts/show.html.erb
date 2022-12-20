@@ -28,8 +28,8 @@
             </p>
             <p class="likes-btn"><%= render 'public/likes/btn', post: @post %></p>
             <% if @post.end_user == current_end_user %>
-              <%= link_to post_path(@post.id), method: :delete, "data-confirm" => "投稿を削除しますか？" do %>
-                <i class="fas fa-trash-alt" style="color:#000;"></i>
+              <%= link_to post_path(@post.id), method: :delete, "data-confirm" => "投稿を削除しますか？", class: "text-dark" do %>
+                <i class="fas fa-trash-alt" style="color:#000;"></i>削除
               <% end %>
             <% end %>
           </div>

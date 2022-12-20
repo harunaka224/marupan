@@ -1,5 +1,7 @@
 <div class="container">
-  <h1 class="text-center font-weight-bolder">マイページ</h1>
+  <h3 class="text-center alart alert-warning text-dark">
+    <strong>マイページ</strong>
+  </h3>
 
   <div class="row">
     <div class="col-md-6 text-center">
@@ -7,19 +9,18 @@
       <div class='mt-1'>
        <%= link_to "プロフィールを編集", edit_end_user_path(current_end_user), class: "btn btn-dark btn-sm" %>
       </div>
-  </div>
+    </div>
 
-    <div class="col-md-6">
+    <div class="col pt-3">
       <h3><%= @end_user.name %></h3>
-      <p><%= @end_user.email %></p>
-      <p>
+      <p class="pt-4">
         <%= link_to "フォロー", end_user_followers_path(@end_user) %>
         <%= @end_user.followers.count %>
       </p>
       <p><%= link_to "フォロワー", end_user_followings_path(@end_user) %>
          <%= @end_user.followings.count %>
       </p>
-      <p><%=link_to"お気に入り投稿",likes_end_user_path(@end_user) %></P>
+      <p><%=link_to"お気に入り投稿",likes_end_user_path(@end_user), class: "btn btn-outline-primary btn-sm"%></P>
       <% if current_end_user != @end_user %>
         <% if current_end_user.following?(@end_user) %>
           <%= link_to "フォロー外す", end_user_relationships_path(@end_user.id), method: :delete %>
@@ -31,7 +32,7 @@
   </div>
 
   <div class="row">
-    <div class="col offset-1">
+    <div class="col offset-1 pt-3">
       <h5>投稿一覧</h5>
       <div class="card-deck"><%= render "public/posts/index", posts: @post %></div>
       <div class="pt-3 offset-4"><%= paginate @post %></div>

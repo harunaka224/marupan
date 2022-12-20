@@ -1,3 +1,5 @@
-<h3>フォロワー<%= @end_users.count %></h3>
+<h3 class="pl-4">
+  <span class = "text-dark alart alert-warning">フォロワー<%= @end_users.count %></span>
+</h3>
 <%= render "follow_list", end_users: @end_users %>
 <%= paginate @end_users %>
