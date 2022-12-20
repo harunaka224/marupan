@@ -1,5 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_end_user!
+  before_action :ensure_end_user, only: [:edit, :update, :destroy]
 
   def new
     @post = Post.new
@@ -25,25 +26,29 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    post = Post.find(params[:id])
-    post.update(post_params)
-    redirect_to post_path(post.id), notice: "投稿更新しました"
+    if @post.update(post_params)
+      redirect_to post_path(@post.id), notice: "投稿更新しました"
+    else
+      render :edit
+    end
   end
 
   def destroy
-    post = Post.find(params[:id])
-    post.destroy
+    @post.destroy
     redirect_to posts_path, alert: "投稿削除しました"
   end
 
   private
-
   def post_params
     params.require(:post).permit(:image, :title, :body, :shop_name)
   end
 
+  def ensure_end_user
+    @posts = current_end_user.posts
+    @post = @posts.find_by(id: params[:id])
+    redirect_to new_post_path unless @post
+  end
 end

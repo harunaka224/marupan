@@ -4,7 +4,7 @@
 
     <div class="row offset-4">
       <% if @post.errors.any? %>
-      必須入力です
+      <p class="text-danger">必須入力です</p>
       <ul>
         <% @post.errors.full_messages.each do |message| %>
           <li><%= message %></li>

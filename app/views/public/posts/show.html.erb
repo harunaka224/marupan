@@ -1,4 +1,10 @@
-<h3 class="text-center">投稿詳細</h3>
+<h3 class="text-center alart alert-warning text-dark">
+  <strong>投稿詳細</strong>
+  <% if @post.end_user == current_end_user %>
+    <%= link_to edit_post_path(@post.id) do %>
+      <i class="fas fa-edit" style="color:#000;"></i>
+  <% end %>
+</h3>
 
 <div class="container">
   <div class="row">
@@ -11,17 +17,20 @@
           <div class="card-body">
             <p class="card-text">
               <%= @post.title %>
-              <%= link_to edit_post_path(@post.id) do %>
-              <i class="fas fa-edit" style="color:#000;"></i>
               <% end %>
             </p>
             <p class="card-text"><%= @post.body %></p>
-            <p class="card-text"><%= @post.shop_name %></p>
+            <p class="card-text"><i class="fas fa-bread-slice"></i><%= @post.shop_name %></p>
             <p class="card-text"><%= @post.created_at.strftime('%Y/%m/%d') %></p>
-            <p class="card-text"><%= link_to @post.end_user.name, end_user_path(@post) %></p>
+            <p class="card-text">
+              <i class="fas fa-user-alt"></i>
+              <%= link_to @post.end_user.name, end_user_path(@post) %>
+            </p>
             <p class="likes-btn"><%= render 'public/likes/btn', post: @post %></p>
-            <%= link_to post_path(@post.id), method: :delete, "data-confirm" => "投稿を削除しますか？" do %>
-              <i class="fas fa-trash-alt" style="color:#000;"></i>
+            <% if @post.end_user == current_end_user %>
+              <%= link_to post_path(@post.id), method: :delete, "data-confirm" => "投稿を削除しますか？" do %>
+                <i class="fas fa-trash-alt" style="color:#000;"></i>
+              <% end %>
             <% end %>
           </div>
         </div>
