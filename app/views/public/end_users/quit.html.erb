@@ -4,12 +4,12 @@
       <h1>本当に退会しますか？</h1><br>
 
 
-      <p>退会すると、会員登録情報や</p>
+      <p>退会すると、会員情報や</p>
       <p>これまでの投稿が閲覧できなくなります。</p>
-      <p>退会する場合は、　「退会する」　をクリックしてください。</p>
+      <p>退会する場合は、「退会する」　をクリックしてください。</p>
 
-      <%= link_to "マイページに戻る", end_user_path(current_end_user), class: 'btn btn-primary' %>
-      <%= link_to "退会する", end_users_out_path, method: :patch, "data-confirm" => "OKを押すと退会処理がされます。本当によろしいですか？", class: 'btn btn-danger' %>
+      <%= link_to "マイページに戻る", end_user_path(current_end_user), class: 'btn btn-primary rounded-pill' %>
+      <%= link_to "退会する", end_users_out_path, method: :patch, "data-confirm" => "OKを押すと退会処理がされます。本当によろしいですか？", class: 'btn btn-danger rounded-pill'%>
     </div>
   </div>
 </div>

@@ -1,9 +1,9 @@
 <% visiter = notification.visiter %>
 <% post = notification.post %>
 
-<div class="user-view clearfix ">
+<div>
   <%= link_to end_user_path(notification.visiter) do %>
-   <%= image_tag current_end_user.get_profile_image, size:'200x200' %>
+   <%= image_tag current_end_user.get_profile_image, size:'100x100' %>
   <% end %>
   <%= notification_form(notification) %><span class="moderate-font"><%= "(#{time_ago_in_words(notification.created_at)} 前)"  %></span>
   <br>
@@ -11,3 +11,5 @@
     <p class="moderate-font text-center" style="color: #C0C0C0;"><%= @post_comment %></p>
   <% end %>
 </div>
+
+<div class="offset-5 pt-3"><%= paginate @notifications %></div>

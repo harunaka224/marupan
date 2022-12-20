@@ -1,6 +1,6 @@
 <% posts.each do |post| %>
   <%= link_to post_path(post.id) do %>
-    <div class="card" style="width: 280px;">
+    <div class="card bg-light" style="width: 280px;">
       <img class="card-img-top" role="img" aria-label="画像の説明">
         <%= image_tag post.get_image, size: "280x280" %>
       </img>
