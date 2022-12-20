@@ -30,6 +30,9 @@
                 <li class="mx-3"><%= link_to destroy_admin_session_path, method: :delete, class: 'btn btn-dark' do %>ログアウト<% end %></li>
               <!--会員側ログイン中のheader-->
               <% elsif end_user_signed_in? %>
+                <% if unchecked_notifications.any? %>
+                    <i class="fa fa-circle" style="color: #e83820;"></i>
+                <% end %>
                 <li class="mx-3"><%= link_to notifications_path, class: 'btn btn-dark' do %>通知<% end %></li>
                 <li class="mx-3"><%= link_to new_post_path, class: "btn btn-dark" do %>新規投稿<% end %></li>
                 <li class="mx-3"><%= link_to end_user_path(current_end_user), class: 'btn btn-dark' do %>マイページ<% end %></li>

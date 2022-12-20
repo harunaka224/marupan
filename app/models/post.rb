@@ -40,7 +40,11 @@ class Post < ApplicationRecord
       visited_id: like_post.end_user_id,
       action: "like"
     )
-    notification.save if notification.valid?
+    #自分の投稿に対するいいねの場合は、通知として保存しない
+    if like_post.end_user_id == current_end_user.id
+    else
+      notification.save if notification.valid?
+    end
   end
 
   def create_notification_comment!(current_end_user, post_comment_id, post_id)
@@ -53,19 +57,19 @@ class Post < ApplicationRecord
   	save_notification_comment!(current_end_user, post_comment_id, end_user_id, post_id) if temp_ids.blank?
   end
 
-  def save_notification_comment!(current_end_user, post_comment_id, visited_id, post_id) #visited_id = 通知を受け取る
+  def save_notification_comment!(current_end_user, post_comment, visited_id, post_id) #visited_id = 通知を受け取る
     # コメントは複数回することが考えられるため、１つの投稿に複数回通知する
     notification = current_end_user.active_notifications.new(
       post_id: post_id,
-      post_comment_id: post_comment_id,
+      post_comment_id: post_comment.id,
       visited_id: visited_id,
       action: 'comment'
     )
-    # 自分の投稿に対するコメントの場合は、通知済みとする
-    if notification.visiter_id == notification.visited_id
-      notification.checked = true
+    # 自分の投稿に対するコメントの場合は、通知として保存しない
+    if current_end_user.id == post_comment.end_user_id
+    else
+     notification.save if notification.valid?
     end
-    notification.save if notification.valid?
   end
 
 end
