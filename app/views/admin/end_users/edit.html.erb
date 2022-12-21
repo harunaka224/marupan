@@ -1,38 +1,38 @@
-<h3 class="text-center alart alert-warning text-dark"><strong><%= @end_user.name %>さんの会員情報編集</strong></h3>
+<h3 class="text-center alart alert-warning text-dark">
+  <strong><%= @end_user.name %>さんの会員情報編集</strong>
+</h3>
 
 <div class="container">
-  <div class="row">
-  
 
-  <%= form_with url: admin_end_user_path(@end_user), method: :patch, model: @end_user do |user| %>
-    <div class= "form-group pl-2">
-      <%= user.label :id, '会員ID', class: "col-2 control-label" %>
-      <%= @end_user.id %>
+  <div class="offset-4 pt-5">
+  <%= form_with url: admin_end_user_path(@end_user), method: :patch, model: @end_user do |f| %>
+    <div class="form-group">
+      <%= f.label :id, '会員ID', class: "control-label col-3" %>
+      <strong><%= @end_user.id %></strong>
     </div>
-    <div class= "form-group pl-2">
-      <%= user.label "名前", class: "col-2 control-label"%>
-      <%= user.text_field :name, class: "mr-5" %>
+    <div class="form-group">
+      <%= f.label "名前", class: "control-label col-3"%>
+      <%= f.text_field :name, class: "mr-5" %>
     </div>
-    <div class= "form-group pl-2">
-      <%= user.label "メールアドレス", class: "col-2 control-label" %>
-      <%= user.text_field :email, class: "mr-5" %>
+    <div class="form-group">
+      <%= f.label "メールアドレス", class: "control-label col-3" %>
+      <%= f.text_field :email, class: "mr-5" %>
     </div>
 
     <!--有効退会切り替え-->
-    <div class= "form-group pl-2">
-      <%= user.label "会員ステータス" , class: "col-2 control-label"%>
-      <%= user.radio_button :is_deleted, :false %>
-      <%= user.label :is_deleted, "有効", value: false %>
-      <%= user.radio_button :is_deleted,  :true %>
-      <%= user.label :is_deleted, "退会", value: true %>
+    <div class="form-group">
+      <%= f.label "会員ステータス" , class: "control-label col-3"%>
+      <%= f.radio_button :is_deleted, :false, class: "ml-4"%>
+      <%= f.label :is_deleted, "有効", value: false %>
+      <%= f.radio_button :is_deleted,  :true %>
+      <%= f.label :is_deleted, "退会", value: true %>
     </div>
-    <div class = "actions" >
-      <%= user.label " " , class: "col-2 control-label" %>
-      <%= user.submit "変更を保存", class: 'btn btn-success' %>
+    <div class ="actions offset-2">
+      <%= f.submit "変更を保存", class: 'btn btn-success btn-sm' %>
+      <%= link_to "会員詳細へ戻る", admin_end_user_path(@end_user), class: "btn btn-primary  btn-sm" %>
     </div>
   <% end %>
-
   </div>
+
 </div>
 
-<%= link_to "会員一覧を見る", admin_root_path, class: "btn btn-primary offset-2" %>

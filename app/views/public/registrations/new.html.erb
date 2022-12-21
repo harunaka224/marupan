@@ -1,12 +1,21 @@
 <div class="new-img">
-    <h3 class="text-center mb-4"><strong>新規登録</strong></h3>
+    <h3 class="text-center pt-3"><strong>新規登録</strong></h3>
 
-    <%= render "devise/shared/error_messages", resource: resource %>
+　　<div class="row offset-4">
+      <% if @end_user.errors.any? %>
+      <p class="text-danger">必須入力です</p>
+      <ul>
+        <% @end_user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+      <% end %>
+    </div>
 
     <div class="d-flex justify-content-center">
     <%= form_with model: @end_user, url: end_user_registration_path do |f| %>
       <div class="form-group">
-        <%= f.label :"ユーザー名" %>
+        <%= f.label :"ユーザー名(２文字以上)" %>
         <div>
         <%= f.text_field :name, autofocus: true, autocomplete: "name",:placeholder => "ユーザー名" %>
         </div>
@@ -18,7 +27,7 @@
         </div>
       </div>
       <div class="form-group">
-        <%= f.label :"パスワード" %>
+        <%= f.label :"パスワード(6文字以上)" %>
         <div>
         <%= f.password_field :password, autocomplete: "current-password" %>
         </div>

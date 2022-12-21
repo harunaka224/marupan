@@ -4,19 +4,20 @@
   <button class="navbar-toggler navbar-orange" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon navbar-white"></span>
   </button>
-  
+
   <div class="row mx-auto">
     <% if end_user_signed_in? %>
       <%= render "public/searches/form" %>
     <% end %>
   </div>
-  
+
   <div class="row">
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav navbar-dark ml-auto">
       <!--管理者側ログイン中のheader-->
+      <p class="my-auto pl-2 text-light">現在、管理者アカウントでログインしています。</p>
       <% if admin_signed_in? %>
-        <li class="my-auto pr-5 mr-5 text-light">現在、管理者アカウントでログインしています。</li>
+        <li class="mx-3"><%= link_to admin_root_path, class: 'btn btn-dark' do %>会員一覧<% end %></li>
         <li class="mx-3"><%= link_to destroy_admin_session_path, method: :delete, class: 'btn btn-dark' do %>ログアウト<% end %></li>
       <!--会員側ログイン中のheader-->
       <% elsif end_user_signed_in? %>
@@ -37,5 +38,5 @@
       </ul>
     </div>
   </div>
-  
+
 </nav>
