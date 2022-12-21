@@ -15,8 +15,8 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav navbar-dark ml-auto">
       <!--管理者側ログイン中のheader-->
-      <p class="my-auto pl-2 text-light">現在、管理者アカウントでログインしています。</p>
       <% if admin_signed_in? %>
+        <p class="my-auto pl-2 text-light">現在、管理者アカウントでログインしています。</p>
         <li class="mx-3"><%= link_to admin_root_path, class: 'btn btn-dark' do %>会員一覧<% end %></li>
         <li class="mx-3"><%= link_to destroy_admin_session_path, method: :delete, class: 'btn btn-dark' do %>ログアウト<% end %></li>
       <!--会員側ログイン中のheader-->
