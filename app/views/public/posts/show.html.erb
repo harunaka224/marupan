@@ -1,10 +1,5 @@
 <h3 class="text-center alart alert-warning text-dark">
   <strong>投稿詳細</strong>
-  <% if @post.end_user == current_end_user %>
-    <%= link_to edit_post_path(@post.id) do %>
-      <i class="fas fa-edit" style="color:#000;"></i>
-    <% end %>
-  <% end %>
 </h3>
 
 <div class="container">
@@ -13,7 +8,7 @@
       <div class="card-deck">
         <div class="card" style="width: 300px;">
           <img class="bd-placeholder-img card-img-top" role="img" aria-label="画像の説明">
-            <%= image_tag @post.get_image, size: "445x300" %>
+            <%= image_tag @post.get_image %>
           </img>
           <div class="card-body">
             <p class="card-text">
@@ -27,11 +22,16 @@
               <%= link_to @post.end_user.name, end_user_path(@end_user) %>
             </p>
             <p class="likes-btn"><%= render 'public/likes/btn', post: @post %></p>
+            <div class="row justify-content-between mx-1">
             <% if @post.end_user == current_end_user %>
+              <%= link_to edit_post_path(@post.id), class: "text-dark" do %>
+                <i class="fas fa-edit" style="color:#000;"></i>編集
+              <% end %>
               <%= link_to post_path(@post.id), method: :delete, "data-confirm" => "投稿を削除しますか？", class: "text-dark" do %>
-                <i class="fas fa-trash-alt" style="color:#000;"></i>削除
+                <i class="fas fa-trash-alt" style="color:#000;"></i>
               <% end %>
             <% end %>
+            </div>
           </div>
         </div>
       </div>

@@ -1,17 +1,16 @@
 <nav class="navbar navbar-expand-lg">
   <a class="navbar-brand p-3" href="/"><%= image_tag("logo.jpg", size: "160x80")%></a>
 
-  <button class="navbar-toggler navbar-orange" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon navbar-white"></span>
-  </button>
-
   <div class="row mx-auto">
     <% if end_user_signed_in? %>
       <%= render "public/searches/form" %>
     <% end %>
   </div>
 
-  <div class="row">
+  <button class="navbar-toggler navbar-orange" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon navbar-white"></span>
+  </button>
+
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav navbar-dark ml-auto">
       <!--管理者側ログイン中のheader-->
@@ -37,6 +36,5 @@
       <% end %>
       </ul>
     </div>
-  </div>
 
 </nav>
