@@ -8,6 +8,7 @@ class Public::PostCommentsController < ApplicationController
     comment.save
     flash[:notice] = '投稿にコメントしました'
     comment.post.create_notification_comment!(current_end_user, comment, comment.post_id)
+    @post_comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per(9)
   end
 
   def destroy

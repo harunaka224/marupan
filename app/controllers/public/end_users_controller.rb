@@ -1,7 +1,11 @@
 class Public::EndUsersController < ApplicationController
-  before_action :authenticate_end_user!
+  before_action :authenticate_end_user!, except: [:index]
   before_action :ensure_guest_end_user, only: [:edit]
 
+  def index
+    redirect_to new_end_user_registration_path
+  end
+  
   def show
     @end_user = EndUser.find(params[:id])
     @post = @end_user.posts.page(params[:page]).per(9)

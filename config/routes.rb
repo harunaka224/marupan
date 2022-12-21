@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     #退会機能
     get '/end_users/quit' => 'end_users#quit'
     patch '/end_users/out' => 'end_users#out'
-    resources :end_users, only: [:show, :edit, :update, :quit, :out] do
+    resources :end_users, only: [:index, :show, :edit, :update, :quit, :out] do
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings'
       get 'followers' => 'relationships#followers'

@@ -7,7 +7,9 @@
     <div class="col-md-6 text-center">
       <%= image_tag @end_user.get_profile_image, size:'200x200' %>
       <div class='mt-1'>
-       <%= link_to "プロフィールを編集", edit_end_user_path(current_end_user), class: "btn btn-dark btn-sm" %>
+        <% if current_end_user == @end_user %>
+          <%= link_to "プロフィールを編集", edit_end_user_path(current_end_user), class: "btn btn-dark btn-sm" %>
+        <% end %>
       </div>
     </div>
 
