@@ -1,38 +1,33 @@
+<h3 class="text-center alart alert-warning text-dark"><strong>会員一覧</strong></h3>
+
 <div class='container'>
-  <div class='row'>
-    <div class='col-10'>
-      <div class="d-flex bd-highlight mb-0 mt-3 ml-5">
-        <h4><p class = "alart alert-secondary text-dark">会員一覧</p></h4>
-　　　</div>
-　　　<div class='offset-2'>
-        <table class="table table-hover table-inverse" >
-          <thead>
-            <th>会員ID</th>
-            <th>名前</th>
-            <th>メールアドレス</th>
-            <th>ステータス</th>
-          </thead>
-          <tbody>
-            <% @end_users.each do |user| %>
-              <tr>
-                <td><%= user.id %></td>
-                <td><%= link_to admin_end_user_path(user.id) do %>
-                    <%= user.name %>
-                    <% end %>
-                </td>
-                <td><%= user.email %></td>
-                <% if user.is_deleted? %>
-                  <td class="text-dark">退会</td>
-                <% else %>
-                  <td class="text-success">有効</td>
-                <% end %>
-              </tr>
-            <% end %>
-        </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+  <div class='row offset-1 mt-3'>
+    <table class="table table-hover table-inverse" >
+      <thead>
+        <th>会員ID</th>
+        <th>名前</th>
+        <th>メールアドレス</th>
+        <th>ステータス</th>
+      </thead>
+      <tbody>
+        <% @end_users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= link_to admin_end_user_path(user.id) do %>
+                <%= user.name %>
+              <% end %>
+          </td>
+          <td><%= user.email %></td>
+          <% if user.is_deleted? %>
+            <td class="text-dark">退会</td>
+          <% else %>
+            <td class="text-success">有効</td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+   </div>
 
   <div class="row justify-content-center mt-3">
     <div class='mr-5'>
