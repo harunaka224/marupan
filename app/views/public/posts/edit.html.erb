@@ -6,27 +6,19 @@
     <%= form_with model: @post do |f| %>
       <div class="form-group">
         <%= f.label :"投稿画像" %>
-        <div>
-        <%= f.file_field :image, accept: "image/*" %>
-        </div>
+        <div><%= f.file_field :image, accept: "image/*" %></div>
       </div>
       <div class="form-group">
         <%= f.label :"タイトル" %>
-        <div>
-        <%= f.text_field :title, autofocus: true, placeholder:"タイトル" %>
-        </div>
+        <div><%= f.text_field :title, autofocus: true, placeholder:"タイトル" %></div>
       </div>
       <div class="form-group">
         <%= f.label :"説明" %>
-        <div>
-         <%= f.text_area :body, autofocus: true, placeholder:"説明" %>
-        </div>
+        <div><%= f.text_area :body, autofocus: true, placeholder:"説明" %></div>
       </div>
       <div class="form-group">
         <%= f.label :"店名" %>
-        <div>
-        <%= f.text_field :shop_name, autofocus: true, placeholder:"店名" %>
-        </div>
+        <div><%= f.text_field :shop_name, autofocus: true, placeholder:"店名" %></div>
       </div>
       <div class="actions offset-2">
         <%= f.submit "編集", class: 'btn btn-warning rounded-pill' %>

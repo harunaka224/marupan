@@ -18,7 +18,7 @@ class Public::RelationshipsController < ApplicationController
   # フォロワー一覧
   def followers
     end_user = EndUser.find(params[:end_user_id])
-    @end_users = end_user.followers.page(params[:page]).per(9)
+    @end_users = end_user.followers.page(params[:page]).per(10)
   end
 
 end

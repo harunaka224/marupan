@@ -68,7 +68,7 @@ class Post < ApplicationRecord
     # 自分の投稿に対するコメントの場合は、通知として保存しない
     if current_end_user.id == post_comment.end_user_id
     else
-     notification.save if notification.valid?
+      notification.save if notification.valid?
     end
   end
 
