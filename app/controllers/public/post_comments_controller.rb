@@ -12,9 +12,11 @@ class Public::PostCommentsController < ApplicationController
   end
 
   def destroy
-    PostComment.find(params[:id]).destroy
-    flash[:alert] = 'コメントを削除しました'
     @post = Post.find(params[:post_id])
+    @post_comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per(9)
+    @post_comment = @post.post_comments.find(params[:id])
+    @post_comment.destroy
+    flash[:alert] = 'コメントを削除しました'
   end
 
   private
