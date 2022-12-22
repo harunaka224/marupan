@@ -1,29 +1,56 @@
 <div class="top-img">
-  <h2 class="text-center">人気投稿TOP3</h3>
-  
+  <h2 class="text-center">人気投稿TOP6</h3>
+
   <div class="container">
     <div class="row offset-md-1">
       <div class="card-deck mt-3">
+
+      <% last_like = 0 %>
+      <% j = 1 %>
       <% @all_ranks.each.with_index(1) do |post, i| %>
-        <%= link_to post_path(post.id) do %>
-        <h4 class="text-dark"><%= i %>位</h4>
-          <div class="card text-dark bg-light" style="width: 280px;">
-            <img class="card-img-top" role="img" aria-label="画像の説明">
-              <%= image_tag post.get_image, size: "280x280" %>
-            </img>
-            <div class="card-body">
-              <p class="card-text"><%= post.title %></p>
-              <p class="card-text"><%= post.created_at.strftime('%Y/%m/%d') %></p>
-              <p><i class="fas fa-heart" style="color: red;"></i><%= post.likes.count %>
-                 <i class="fas fa-comment-dots"></i><%= post.post_comments.count %>
-              </p>
+        <% if i == 1 %><!--最初の値をlast_likeに保存-->
+          <% last_like = post.likes.count %>
+        <% end %>
+        <% if post.likes.count != last_like %>
+          <% j = i %>
+          <%= link_to post_path(post.id) do %>
+          <h4 class="text-dark"><%= j %>位</h4>
+            <div class="card text-dark bg-light" style="width: 280px;">
+              <img class="card-img-top" role="img" aria-label="画像の説明">
+                <%= image_tag post.get_image, size: "280x280" %>
+              </img>
+              <div class="card-body">
+                <p class="card-text"><%= post.title %></p>
+                <p class="card-text"><%= post.created_at.strftime('%Y/%m/%d') %></p>
+                <p><i class="fas fa-heart" style="color: red;"></i><%= post.likes.count %>
+                   <i class="fas fa-comment-dots"></i><%= post.post_comments.count %>
+                </p>
+              </div>
             </div>
-          </div>
+            <% last_like = post.likes.count %><!--次の順位のいいね数と比べる為、last_likeの値を更新-->
+          <% end %>
+        <% else %><!--同率順位の場合-->
+          <% last_like = post.likes.count %><!--次の順位のいいね数と比べる為、last_likeの値を更新-->
+          <%= link_to post_path(post.id) do %>
+          <h4 class="text-dark"><%= j %>位</h4>
+            <div class="card text-dark bg-light" style="width: 280px;">
+              <img class="card-img-top" role="img" aria-label="画像の説明">
+                <%= image_tag post.get_image, size: "280x280" %>
+              </img>
+              <div class="card-body">
+                <p class="card-text"><%= post.title %></p>
+                <p class="card-text"><%= post.created_at.strftime('%Y/%m/%d') %></p>
+                <p><i class="fas fa-heart" style="color: red;"></i><%= post.likes.count %>
+                   <i class="fas fa-comment-dots"></i><%= post.post_comments.count %>
+                </p>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     　</div>
   　</div>
   </div>
-  
+
 </div>
 
