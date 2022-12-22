@@ -22,7 +22,7 @@
       <p><%= link_to "フォロワー", end_user_followings_path(@end_user) %>
          <%= @end_user.followings.count %>
       </p>
-      <p><%=link_to"お気に入り投稿",likes_end_user_path(@end_user), class: "btn btn-outline-primary btn-sm"%></P>
+      <p><%=link_to"お気に入り投稿",likes_end_user_path(@end_user), class: "btn btn-warning btn-sm"%></P>
       <% if current_end_user != @end_user %>
         <% if current_end_user.following?(@end_user) %>
           <%= link_to "フォロー外す", end_user_relationships_path(@end_user.id), method: :delete %>
