@@ -33,6 +33,7 @@
     </div>
   </div>
 
+　<% if current_end_user == "guest" %>
   <div class="row">
     <div class="col offset-1 pt-3">
       <h5>投稿一覧</h5>
@@ -40,5 +41,6 @@
       <div class="pt-3 offset-4"><%= paginate @post %></div>
     </div>
   </div>
+  <% end %>
 
 </div>
