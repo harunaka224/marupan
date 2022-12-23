@@ -11,16 +11,13 @@
             <%= image_tag @post.get_image %>
           </img>
           <div class="card-body">
-            <p class="card-text">
-              <%= @post.title %>
-            </p>
+            <h5 class="card-text"><i class="fas fa-bread-slice"></i><strong><%= @post.title %></strong></h5>
             <p class="card-text"><%= @post.body %></p>
-            <p class="card-text"><i class="fas fa-bread-slice"></i><%= @post.shop_name %></p>
-            <p class="card-text"><%= @post.created_at.strftime('%Y/%m/%d') %></p>
-            <p class="card-text">
-              <i class="fas fa-user-alt"></i>
+            <p class="card-text">店舗：<%= @post.shop_name %></p>
+            <p class="card-text">投稿者：
               <%= link_to @post.end_user.name, end_user_path(@end_user) %>
             </p>
+            <p class="card-text"><%= @post.created_at.strftime('%Y/%m/%d') %></p>
             <p class="likes-btn"><%= render 'public/likes/btn', post: @post %></p>
             <div class="row justify-content-between mx-1">
             <% if @post.end_user == current_end_user %>

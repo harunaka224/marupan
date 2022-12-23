@@ -29,13 +29,9 @@ class Public::EndUsersController < ApplicationController
 
   def out
     @end_user = current_end_user
-    if @end_user.name = "guest"
-      redirect_to root_path, alert: "ゲストは退会できません"
-    else
-      @end_user.update(is_deleted: true)
-      reset_session
-      redirect_to root_path, alert: "退会しました"
-    end
+    @end_user.update(is_deleted: true)
+    reset_session
+    redirect_to root_path, alert: "退会しました"
   end
 
   def likes
