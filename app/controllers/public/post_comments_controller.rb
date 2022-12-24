@@ -4,7 +4,7 @@ class Public::PostCommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @post_comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per(9)
+    @post_comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per(12)
     comment = current_end_user.post_comments.new(post_comment_params)
     comment.post_id =@post.id
     comment.save
@@ -13,7 +13,7 @@ class Public::PostCommentsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:post_id])
-    @post_comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per(9)
+    @post_comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per(12)
     @post_comment = @post.post_comments.find(params[:id])
     @post_comment.destroy
   end

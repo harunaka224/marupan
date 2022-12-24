@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
   <% post_comments.each do |post_comment| %>
-    <div class="col-3">
-      <%= image_tag post_comment.end_user.get_profile_image, size: "70x70" %>
+    <div class="col-3 pb-1">
+      <%= image_tag post_comment.end_user.get_profile_image, size: "50x50" %>
     </div>
     <div class="col-9 pb-1">
       <%= post_comment.end_user.name %>

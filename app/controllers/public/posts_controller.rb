@@ -20,7 +20,7 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
-    @post_comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per(9)
+    @post_comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per(12)
     @end_user = @post.end_user.id
   end
 

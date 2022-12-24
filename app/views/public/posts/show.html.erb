@@ -13,7 +13,7 @@
           <div class="card-body">
             <h5 class="card-text"><i class="fas fa-bread-slice"></i><strong><%= @post.title %></strong></h5>
             <p class="card-text"><%= @post.body %></p>
-            <p class="card-text">店舗：<%= @post.shop_name %></p>
+            <p class="card-text">店名：<%= @post.shop_name %></p>
             <p class="card-text">投稿者：
               <%= link_to @post.end_user.name, end_user_path(@end_user) %>
             </p>
