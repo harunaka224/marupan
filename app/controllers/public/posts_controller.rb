@@ -1,7 +1,7 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_end_user!
   before_action :ensure_end_user, only: [:edit, :update, :destroy]
-  before_action :ensure_guest_end_user, only: [:create, :update]
+  #before_action :ensure_guest_end_user, only: [:create, :update]
 
   def new
     @post = Post.new
@@ -55,10 +55,10 @@ class Public::PostsController < ApplicationController
     redirect_to new_post_path unless @post
   end
 
-  def ensure_guest_end_user
-    if current_end_user.name == "guest"
-      redirect_to posts_path, notice: 'ゲストユーザーは投稿できません。'
-    end
-  end
+  # def ensure_guest_end_user
+  #   if current_end_user.name == "guest"
+  #     redirect_to posts_path, notice: 'ゲストユーザーは投稿できません。'
+  #   end
+  # end
 
 end

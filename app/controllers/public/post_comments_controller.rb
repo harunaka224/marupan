@@ -1,6 +1,6 @@
 class Public::PostCommentsController < ApplicationController
   before_action :authenticate_end_user!
-  before_action :ensure_guest_end_user, only: [:create, :update]
+  #before_action :ensure_guest_end_user, only: [:create, :update]
 
   def create
     @post = Post.find(params[:post_id])
@@ -24,11 +24,11 @@ class Public::PostCommentsController < ApplicationController
     params.require(:post_comment).permit(:comment)
   end
 
-  def ensure_guest_end_user
-    @post = Post.find(params[:post_id])
-    if current_end_user.name == "guest"
-      redirect_to post_path(@post.id), notice: 'ゲストユーザーはコメントできません。'
-    end
-  end
+  # def ensure_guest_end_user
+  #   @post = Post.find(params[:post_id])
+  #   if current_end_user.name == "guest"
+  #     redirect_to post_path(@post.id), notice: 'ゲストユーザーはコメントできません。'
+  #   end
+  # end
 end
 

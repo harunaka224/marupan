@@ -32,11 +32,11 @@
           </div>
         </div>
       </div>
-      <div class="mt-2"><%= render "public/post_comments/form", post: @post, post_comment: @post_comment %></div>
     </div>
 
     <div class="col-5 offset-1">
-      <div class="comment-counter"><%= render "public/post_comments/counter", post: @post %></div>
+      <div><%= render "public/post_comments/form", post: @post, post_comment: @post_comment %></div>
+      <div class="comment-counter text-right pt-2"><%= render "public/post_comments/counter", post: @post %></div>
       <div class="comment-index"><%= render "public/post_comments/index", post_comments: @post_comments %></div>
     </div>
 
