@@ -6,7 +6,7 @@
         <td><%= user.name %></td>
         <td>フォロー<%= user.followers.count %></td>
         <td>フォロワー<%= user.followings.count %></td>
-        <td><%= link_to  "詳細", end_user_path(user.id) %></td>
+        <td><%= link_to  "詳細", end_user_path(user.id), class: "btn btn-warning" %></td>
       </tr>
     <% end %>
   </tbody>

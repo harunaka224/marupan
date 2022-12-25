@@ -1,14 +1,15 @@
 <div class="container">
 
   <% if @model == 'end_user' %>
-  <h3><span class = "alart alert-warning text-dark">ユーザー検索結果</span>"<%= @content %>"</h3><br>
+  <h3>
+    <span class = "alart alert-warning text-dark">ユーザー検索結果<%= @records.count %>件</span>"<%= @content %>"</h3><br>
     <% if @records.count == 0 %>
       <h4>検索結果がありませんでした。</h4>
     <% else %>
       <%= render 'public/end_users/index', end_users: @records %>
     <% end %>
   <% elsif @model == 'post' %>
-  <h3><span class = "alart alert-warning text-dark">投稿検索結果</span>"<%= @content %>"</h3><br>
+  <h3><span class = "alart alert-warning text-dark">投稿検索結果<%= @records.count %>件</span>"<%= @content %>"</h3><br>
     <% if @records.count == 0 %>
       <h4>検索結果がありませんでした。</h4>
     <% end %>
