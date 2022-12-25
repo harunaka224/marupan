@@ -27,7 +27,7 @@ Post.create!(
     {image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post3.jpeg"),filename:"sample-post3.jpeg"),title: "バタークロワッサン", body: "美味しすぎた。奥にカフェもあり", shop_name: "くもぱん", end_user_id: users[1].id},
     {image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post4.jpeg"),filename:"sample-post4.jpeg"),title: "アールグレイチョコ", body: "紅茶好きはハマる", shop_name: "24pain", end_user_id: users[1].id},
     {image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post5.jpeg"),filename:"sample-post5.jpeg"),title: "生ハムサンド", body: "自家製生ハム入り", shop_name: "九州くん煙工房", end_user_id: users[2].id},
-    {image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post6.jpeg"),filename:"sample-post6.jpeg"),title: "クロックムッシュ", body: "目玉焼きのパンに入ってるソースが美味しかった", shop_name: "ブランジュリームッシュ", end_user_id: users[2].id}
+    {image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post6.jpeg"),filename:"sample-post6.jpeg"),title: "クロックムッシュ", body: "目玉焼きが乗っててソースが美味しかった〜", shop_name: "ブランジュリームッシュ", end_user_id: users[2].id}
   ]
 )
 

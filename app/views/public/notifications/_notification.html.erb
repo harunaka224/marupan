@@ -1,9 +1,8 @@
 <% visiter = notification.visiter %>
-<% post = notification.post %>
 
 <div>
-  <%= link_to end_user_path(notification.visiter) do %>
-   <%= image_tag current_end_user.get_profile_image, size:'100x100' %>
+  <%= link_to end_user_path(visiter) do %>
+   <%= image_tag visiter.get_profile_image, size:'100x100' %>
   <% end %>
   <%= notification_form(notification) %><span class="moderate-font"><%= "(#{time_ago_in_words(notification.created_at)} 前)"  %></span>
   <br>
