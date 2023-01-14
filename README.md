@@ -23,14 +23,14 @@ SNS機能の発達で簡単に情報を探せる反面、情報量が多過ぎ�
 
 ## 設計書
 - テーブル定義書　
-- https://docs.google.com/spreadsheets/d/1fSezj_kUZne-sWWWNr_xjOd5bEIbFs6h/edit#gid=1243549839
+https://docs.google.com/spreadsheets/d/1fSezj_kUZne-sWWWNr_xjOd5bEIbFs6h/edit#gid=1243549839
 - アプリケーション詳細設計書
-- https://docs.google.com/spreadsheets/d/13ZLZiN2tXLF9IMbfrJIGIdgcqqCgT6YNb1MNzIIqga0/edit#gid=549108681
+https://docs.google.com/spreadsheets/d/13ZLZiN2tXLF9IMbfrJIGIdgcqqCgT6YNb1MNzIIqga0/edit#gid=549108681
 - ER図
-- https://app.diagrams.net/#G18mjxTIBTJtyE8uI7q530QrilRFl-BgJW
+https://app.diagrams.net/#G18mjxTIBTJtyE8uI7q530QrilRFl-BgJW
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Amazon Linux2
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
