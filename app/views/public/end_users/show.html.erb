@@ -16,10 +16,10 @@
     <div class="col pt-3">
       <h3><%= @end_user.name %></h3>
       <p class="pt-4">
-        <%= link_to "フォロー", end_user_followers_path(@end_user) %>
+        <%= link_to "フォロワー", end_user_followers_path(@end_user) %>
         <%= @end_user.followers.count %>
       </p>
-      <p><%= link_to "フォロワー", end_user_followings_path(@end_user) %>
+      <p><%= link_to "フォロー", end_user_followings_path(@end_user) %>
          <%= @end_user.followings.count %>
       </p>
       <p><%=link_to"お気に入り投稿",likes_end_user_path(@end_user), class: "btn btn-warning btn-sm"%></P>
