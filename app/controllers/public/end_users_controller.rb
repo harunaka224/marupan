@@ -20,7 +20,7 @@ class Public::EndUsersController < ApplicationController
     if @end_user.update(end_user_params)
       redirect_to end_user_path(current_end_user)
     else
-      render edit
+      render :edit
     end
   end
 

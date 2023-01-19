@@ -1,9 +1,18 @@
 <div class="new-img">
   <div class="container">
+
     <h3 class="text-center"><strong>マイページ編集</strong></h3>
     <div class="text-right mr-3">
     <%= link_to "退会する", end_users_quit_path, class: "btn btn-danger rounded-pill" %>
     </div>
+
+    <% if @end_user.errors.any? %>
+    <ul>
+      <% @end_user.errors.full_messages.each do |message| %>
+        <li class="text-center "><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
 
     <div class="row offset-4">
     <%= form_with model: @end_user do |f| %>
